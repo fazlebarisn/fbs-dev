@@ -18,3 +18,10 @@ function test_shortcode( $atts ){
 
     return $atts['message'] . $atts['message2'];
 }
+
+// how to use filter
+add_filter( 'the_title', 'fbs_dev_change_title' );
+
+function fbs_dev_change_title( $title ){
+    return $title . " What the heck!";
+}
