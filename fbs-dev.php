@@ -39,6 +39,8 @@ function fbs_dev_munu(){
 
     add_submenu_page( 'fbs_dev_options', 'Fbs Settings', 'Fbs Settings', 'manage_options', 'fbs_settings', 'fbs_settings_func', null );
     add_submenu_page( 'fbs_dev_options', 'Fbs Layout', 'Fbs Layout', 'manage_options', 'fbs_layout', 'fbs_layout_func', null );
+    // add submenu under dashbord menu
+    add_dashboard_page( 'Fbs plugin options', 'Fbs plugin options', 'manage_options', 'fbs_plugin_options', 'fbs_plugin_options_func', null );
 }
 
 function fbs_dev_menu_func(){
@@ -51,4 +53,8 @@ function fbs_settings_func(){
 
 function fbs_layout_func(){
     echo "<h1> Fbs Layout</h1>";
+}
+
+function fbs_plugin_options_func(){
+    echo "<h1> Fbs Plugin Options</h1>";
 }
