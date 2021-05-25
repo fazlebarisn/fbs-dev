@@ -1,31 +1,14 @@
 <?php
-/**
- * @package FbsDevPlugin
-*/
 
-/*
-Plugin Name: Fbs Dev Plugin
-Plugin URI: https://www.chitabd.com/
-Description: My New Plugin
-Version: 1.0.0
-Author: Fazle Bari
-Author URI: https://www.chitabd.com/
-Licence: GPL Or leater
-Text Domain: fbs-dev
-*/
-
-/*
-This is a free plugin
-*/
-
-defined('ABSPATH') or die('Nice Try!');
-
+// init action will run at the begening
 add_action( 'init' , 'fbs_dev_init');
 
 function fbs_dev_init(){
+    // add shortcode
     add_shortcode( 'test', 'test_shortcode' );
 }
 
+// define test shortcode function
 function test_shortcode( $atts ){
     
     $atts = shortcode_atts( array(
