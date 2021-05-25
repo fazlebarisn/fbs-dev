@@ -20,3 +20,12 @@ This is a free plugin
 
 defined('ABSPATH') or die('Nice Try!');
 
+add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' );
+
+function fbs_dev_enqueue_script(){
+    // include style file
+    wp_enqueue_style( 'fbs_dev_style', plugin_dir_url(__FILE__) . "assets/css/style.css" );
+
+    // include js file
+    wp_enqueue_script( 'fbs_dev_script', plugin_dir_url(__FILE__) . "assets/js/custom.js", array(), '1.0.0', true );
+}
