@@ -17,3 +17,5 @@ Text Domain: fbs-dev
 /*
 This is a free plugin
 */
+
+defined('ABSPATH') or die('Nice Try!');
