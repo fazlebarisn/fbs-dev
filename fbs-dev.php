@@ -43,8 +43,24 @@ function fbs_dev_munu(){
     add_dashboard_page( 'Fbs plugin options', 'Fbs plugin options', 'manage_options', 'fbs_plugin_options', 'fbs_plugin_options_func', null );
 }
 
+register_activation_hook( __FILE__, function(){
+    add_option( 'fbs_dev_name','' );
+} );
+register_deactivation_hook( __FILE__, function(){
+    delete_option( 'fbs_dev_name');
+} );
+
 function fbs_dev_menu_func(){
-    echo "<h1>Fbs Options</h1>";
+    ?>
+        <div class="wrap">
+            <h1>Fbs Plugin options</h1>
+            <form action="options.php" method="post">
+                <label for="fbs_dev_name"> Fbs Dev Name</label>
+                <input type="text" name="fbs_dev_name" value="<?php echo esc_html( get_option('fbs_dev_name')) ?>">
+                <?php submit_button('Save'); ?>
+            </form>
+        </div>
+    <?php
 }
 
 function fbs_settings_func(){
