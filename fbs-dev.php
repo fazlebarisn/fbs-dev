@@ -33,6 +33,7 @@ function fbs_dev_enqueue_script(){
 
 // add menu in wordpress dashbord
 add_action( 'admin_menu', 'fbs_dev_munu' );
+add_action( 'admin_menu', 'fbs_dev_procese_form_setting' );
 
 function fbs_dev_munu(){
     add_menu_page( 'Fbs Dev', 'Fbs Dev Options', 'manage_options', 'fbs_dev_options', 'fbs_dev_menu_func', '', null );
@@ -50,13 +51,23 @@ register_deactivation_hook( __FILE__, function(){
     delete_option( 'fbs_dev_name');
 } );
 
+function fbs_dev_procese_form_setting(){
+    register_setting( 'fbs_dev_option_group' , 'fbs_dev_option_name' );
+    if( isset($_POST['action']) && current_user_can('manage_options') ){
+        update_option( 'fbs_dev_name' , sanitize_text_field( $_POST['fbs_dev_name']) );
+    }
+}
+
 function fbs_dev_menu_func(){
     ?>
         <div class="wrap">
             <h1>Fbs Plugin options</h1>
+            <?php settings_errors()?>
             <form action="options.php" method="post">
-                <label for="fbs_dev_name"> Fbs Dev Name</label>
-                <input type="text" name="fbs_dev_name" value="<?php echo esc_html( get_option('fbs_dev_name')) ?>">
+            <?php settings_fields( 'fbs_dev_option_group' ); ?>
+                <label for="fbs_dev_name"> Fbs Dev Name :
+                    <input type="text" name="fbs_dev_name" value="<?php echo esc_html( get_option('fbs_dev_name')) ?>">
+                </label>
                 <?php submit_button('Save'); ?>
             </form>
         </div>
