@@ -20,18 +20,22 @@ This is a free plugin
 
 defined('ABSPATH') or die('Nice Try!');
 
+define( 'PLUGIN_PATH' , plugin_dir_path( __FILE__ ) );
+define( 'PLUGIN_URL' , plugin_dir_url(__FILE__) );
+
 // include files
-include plugin_dir_path(__FILE__) . "inc/fbs-plugin-option.php";
-include plugin_dir_path(__FILE__) . "inc/metaboxes.php";
+include PLUGIN_PATH . "inc/fbs-plugin-option.php";
+include PLUGIN_PATH. "inc/metaboxes.php";
+include PLUGIN_PATH . "inc/custom-posts.php";
 
 add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' );
 
 function fbs_dev_enqueue_script(){
     // include style file
-    wp_enqueue_style( 'fbs_dev_style', plugin_dir_url(__FILE__) . "assets/css/style.css" );
+    wp_enqueue_style( 'fbs_dev_style', PLUGIN_URL . "assets/css/style.css" );
 
     // include js file
-    wp_enqueue_script( 'fbs_dev_script', plugin_dir_url(__FILE__) . "assets/js/custom.js", array(), '1.0.0', true );
+    wp_enqueue_script( 'fbs_dev_script', PLUGIN_URL . "assets/js/custom.js", array(), '1.0.0', true );
 }
 
 
