@@ -22,6 +22,7 @@ defined('ABSPATH') or die('Nice Try!');
 
 // include files
 include plugin_dir_path(__FILE__) . "inc/fbs-plugin-option.php";
+include plugin_dir_path(__FILE__) . "inc/metaboxes.php";
 
 add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' );
 
@@ -46,12 +47,12 @@ function fbs_dev_munu(){
     add_dashboard_page( 'Fbs plugin options', 'Fbs plugin options', 'manage_options', 'fbs_plugin_options', 'fbs_plugin_options_func', null );
 }
 
-register_activation_hook( __FILE__, function(){
-    add_option( 'fbs_dev_name','' );
-} );
-register_deactivation_hook( __FILE__, function(){
-    delete_option( 'fbs_dev_name');
-} );
+// register_activation_hook( __FILE__, function(){
+//     add_option( 'fbs_dev_name','' );
+// } );
+// register_deactivation_hook( __FILE__, function(){
+//     delete_option( 'fbs_dev_name');
+// } );
 
 function fbs_settings_func(){
     echo "<h1>Fbs Settings</h1>";
