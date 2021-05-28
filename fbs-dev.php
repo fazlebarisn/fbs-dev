@@ -31,21 +31,28 @@ include PLUGIN_PATH . "inc/shortcode.php";
 include PLUGIN_PATH . "inc/ajax.php";
 
 // add script for fondend
-add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' ); 
+add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' ); // wp_enqueue_scripts
 
 function fbs_dev_enqueue_script(){
     // include style file
     wp_enqueue_style( 'fbs_dev_style', PLUGIN_URL . "assets/css/style.css" );
 
     // include js file
-    wp_enqueue_scripts( 'jquery' );
+    wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'fbs_dev_script', PLUGIN_URL . "assets/js/custom.js", array(), '1.0.0', true );
+
+    // add ajax update option
+    wp_localize_script( 'fbs_dev_script', 'ajax_object', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'num1' => 10,
+    ));
 }
 
 // adding script only for admin panel
 add_action( 'admin_enqueue_scripts', 'fbs_dev_enqueue_admin_script' );
 
 function fbs_dev_enqueue_admin_script(){
+    //wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'fbs_dev_script', PLUGIN_URL . "assets/js/custom.js", array(), '1.0.0', true );
 }
 
