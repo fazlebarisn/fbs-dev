@@ -40,7 +40,7 @@ function fbs_dev_new_custom_post(){
 
 // add custom template for 'news' post type
 
-add_filter( 'template_include', 'fbs_dev_news_template' );
+//add_filter( 'template_include', 'fbs_dev_news_template' );
 
 function fbs_dev_news_template( $template ){
 

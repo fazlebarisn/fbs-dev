@@ -27,6 +27,7 @@ define( 'PLUGIN_URL' , plugin_dir_url(__FILE__) );
 include PLUGIN_PATH . "inc/fbs-plugin-option.php";
 include PLUGIN_PATH. "inc/metaboxes.php";
 include PLUGIN_PATH . "inc/custom-posts.php";
+include PLUGIN_PATH . "inc/shortcode.php";
 
 add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' );
 
