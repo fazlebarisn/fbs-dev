@@ -1,0 +1,12 @@
+.entry-content .news_title{
+    color: brown;
+}
+
+.entry-content > .news_content{
+    color:blue;
+}
+
+nav.next_previous{
+    display: flex;
+    justify-content: space-around;
+}
