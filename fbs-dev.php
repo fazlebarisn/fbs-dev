@@ -28,17 +28,26 @@ include PLUGIN_PATH . "inc/fbs-plugin-option.php";
 include PLUGIN_PATH. "inc/metaboxes.php";
 include PLUGIN_PATH . "inc/custom-posts.php";
 include PLUGIN_PATH . "inc/shortcode.php";
+include PLUGIN_PATH . "inc/ajax.php";
 
-add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' );
+// add script for fondend
+add_action( 'wp_enqueue_scripts', 'fbs_dev_enqueue_script' ); 
 
 function fbs_dev_enqueue_script(){
     // include style file
     wp_enqueue_style( 'fbs_dev_style', PLUGIN_URL . "assets/css/style.css" );
 
     // include js file
+    wp_enqueue_scripts( 'jquery' );
     wp_enqueue_script( 'fbs_dev_script', PLUGIN_URL . "assets/js/custom.js", array(), '1.0.0', true );
 }
 
+// adding script only for admin panel
+add_action( 'admin_enqueue_scripts', 'fbs_dev_enqueue_admin_script' );
+
+function fbs_dev_enqueue_admin_script(){
+    wp_enqueue_script( 'fbs_dev_script', PLUGIN_URL . "assets/js/custom.js", array(), '1.0.0', true );
+}
 
 // add menu in wordpress dashbord
 add_action( 'admin_menu', 'fbs_dev_munu' );
