@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('Nice Try!');
 
 // init action will run at the begening
 add_action( 'init' , 'fbs_dev_init');

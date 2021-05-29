@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or die('Nice Try!'); ?>
+
 <?php get_header() ?>
 
 <article id="post-news-<?php echo get_the_Id() ?>" class="post-news">

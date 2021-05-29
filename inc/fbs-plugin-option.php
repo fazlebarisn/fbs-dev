@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('Nice Try!');
 
 add_action( 'admin_menu', 'fbs_dev_procese_form_setting' );
 
@@ -27,6 +28,7 @@ function fbs_dev_menu_func(){
                 </label> -->
                 <?php submit_button('Save'); ?>
             </form>
+            <?php include PLUGIN_PATH . "inc/api.php"; ?>
         </div>
     <?php
 }

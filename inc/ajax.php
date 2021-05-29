@@ -1,5 +1,5 @@
 <?php
-
+defined('ABSPATH') or die('Nice Try!');
 // admin ajax action
 add_action( 'wp_ajax_my_ajax_action', 'fbs_dev_ajax_action' );
 add_action( 'wp_ajax_my_front_ajax_action', 'fbs_dev_my_front_ajax_action' );

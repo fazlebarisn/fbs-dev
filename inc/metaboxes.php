@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') or die('Nice Try!');
 
 add_action( 'admin_init' , function(){
     add_meta_box( '_mycustommetabox' , 'My Custom Metabox' , 'fbs_dev_custom_metabox' , ['post','page']);

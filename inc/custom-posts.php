@@ -1,5 +1,5 @@
 <?php
-
+defined('ABSPATH') or die('Nice Try!');
 add_action( 'init', 'fbs_dev_new_custom_post' );
 
 function fbs_dev_new_custom_post(){
